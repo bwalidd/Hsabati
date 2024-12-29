@@ -1,0 +1,26 @@
+# Global ignores
+.DS_Store
+Thumbs.db
+
+# Ignore Node.js dependencies in the front folder
+front/node_modules/
+front/dist/
+front/.angular/
+
+# Ignore build and dependency files in the back folder
+back/target/
+back/*.class
+
+# IDE-specific files
+.idea/
+.vscode/
+*.iml
+*.project
+
+# Logs and temp files
+*.log
+*.tmp
+
+# OS-specific files
+.DS_Store
+Thumbs.db

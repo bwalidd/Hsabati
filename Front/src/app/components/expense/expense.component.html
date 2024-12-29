@@ -1,0 +1,68 @@
+<div>
+    <div nz-row>
+        <div nz-col nzSpan="24">
+            <nz-card nz-Type="inner" style="margin-top: 16px;" nzTitle="Post new Expense">
+                
+                <form nz-form [formGroup]="expenseForm" (ngSubmit)="postExpense()" class="custom-form">
+                    <nz-form-item>
+                        <nz-form-control nzErrorTip="Please input the title!">
+                            <input type="text" nz-input formControlName="title" placeholder="Enter title" />
+                        </nz-form-control>
+                    </nz-form-item>
+                    <nz-form-item>
+                        <nz-form-control nzErrorTip="Please input the amount!">
+                            <input type="number" nz-input formControlName="amount" placeholder="Enter amount" />
+                        </nz-form-control>
+                    </nz-form-item>
+                    <nz-form-item>
+                        <nz-form-control nzErrorTip="Please input the date!">
+                            <nz-date-picker formControlName="date" style="width: 100%;" nzPlaceHolder="Select date"></nz-date-picker>
+                        </nz-form-control>
+                    </nz-form-item>
+                    <nz-form-item>
+                        <nz-form-control nzErrorTip="Please input Description!">
+                            <textarea nz-input formControlName="description"   placeholder="Enter description"></textarea>
+                        </nz-form-control>
+                    </nz-form-item>
+                    <nz-form-item>
+                        <nz-form-control>
+                            <nz-select nzAllowClear nzPlaceHolder="select Category" formControlName="category">
+                                <nz-option *ngFor="let category of listOfCategory" [nzLabel]="category" [nzValue]="category"></nz-option>
+                            </nz-select>
+                        </nz-form-control>
+                    </nz-form-item>
+
+                    <button nz-button nzType="primary" type="submit" nzBlock [disabled]="expenseForm.invalid">Post Expense</button>
+                </form>
+            </nz-card>
+        </div>
+
+        <div nz-col nzFlex="3" style="margin-left: 20px;">
+            <nz-card nzType="inner" style="margin-top: 16px;" nzTitle="Past Expenses">
+                <div nz-card-grid style="width: 100%;" *ngFor="let expense of allExpense ; let index = index">
+                    <div nz-row>
+                    <div nz-col nzSpan="18">
+                        <span nz-icon nzType="message" nzTheme="outline"></span> {{ expense.title }} 
+                        -
+                        <span nz-icon nzType="dollar" nzTheme="outline"></span> {{ expense.amount }} 
+                        -
+                        <span nz-icon nzType="clock-circle" nzTheme="outline"></span> {{ expense.date }} 
+                        -
+                        <span nz-icon nzType="comment" nzTheme="outline"></span> {{ expense.category }}
+                    </div>
+                    <div nz-col nzSpan="6" style="font-size: 15px;">
+                        <span nz-icon nzType="edit" (click)="updateExpense(expense.id)" nzTheme="fill" style="color: blue;"></span>
+                        <span nz-icon nzType="delete" (click)="deleteExpense(expense.id)" nzTheme="fill" style="color: red; margin-left: 10px;"></span>
+                    </div>
+                    </div>
+                </div>
+            </nz-card>
+        </div>
+          
+    </div>
+</div>
+
+
+
+
+

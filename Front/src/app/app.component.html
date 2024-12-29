@@ -1,0 +1,33 @@
+<nz-layout class="layout">
+  <nz-sider>
+    <div class="logo">
+      <img src="../assets/vecteezy_avatar-man-icon-cartoon-male-profile-mascot-vector_9749751.jpg" class="avatar" alt="logo" />
+      <div class="user-info">
+        <strong>Hsabati</strong>
+      </div>
+    </div>
+    <ul nz-menu nz-theme="dark" nzMode="inline">
+      <li nz-menu-item routerLink="/">
+        <span nz-icon nzType="dashboard"></span>
+        <span>Dashboard</span>
+      </li>
+      <li nz-menu-item routerLink="/income">
+        <span nz-icon nzType="fund"></span>
+        <span>Income</span>
+      </li>
+      <li nz-menu-item routerLink="/expense">
+        <span nz-icon nzType="fall"></span>
+        <span>Expense</span>
+    </ul>
+  </nz-sider>
+
+  <nz-layout class="right-layout">
+    <nz-content>
+      <div class="inner-content">
+        <router-outlet></router-outlet>
+      </div>
+    </nz-content>
+  </nz-layout>
+
+
+</nz-layout>
